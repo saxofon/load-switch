@@ -1,0 +1,4 @@
+* code cleanups (still a young project...)
+* documenting stuff
+* add hardware design
+* add esp82xx port
