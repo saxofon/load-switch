@@ -1,0 +1,8 @@
+*.d
+*.o
+*.so
+*.pem
+examples/load-switch/load-control
+examples/load-switch/load-switch
+examples/load-switch/target_priv.h
+examples/load-switch/target_pub.h
