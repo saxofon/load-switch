@@ -71,10 +71,11 @@ static void *thread_rx(void *arg)
 int main(int argc, char* argv[])
 {
 	int status;
-	char message[50];
+	size_t privkey_size = (size_t)(&_binary_target_priv_pem_end-&_binary_target_priv_pem_start);
+	size_t pubkey_size = (size_t)(&_binary_target_pub_pem_end-&_binary_target_pub_pem_start);
 
 	simple_transport_init(MC_IP, MC_PORT);
-	simple_security_init(&_binary_target_priv_pem_start, (int)&_binary_target_priv_pem_size, &_binary_target_pub_pem_start, (int)&_binary_target_pub_pem_size);
+	simple_security_init(&_binary_target_priv_pem_start, privkey_size, &_binary_target_pub_pem_start, pubkey_size);
 
 	status = pthread_create(&tid_rx, NULL, thread_rx, NULL);
 
