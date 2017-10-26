@@ -36,7 +36,7 @@ target_pub.pem: target_priv.pem
 	nm $@ | grep size | awk '{ printf "extern const int %s;\n", $$3}' >> $(@:.o=.h)
 
 %.d:%.c
-	$(CC) $(CFLAGS) -MM $< >$@
+	$(CC) $(CFLAGS) -MM -MG $< >$@
 
 -include $(SRCS:.c=.d)
 
